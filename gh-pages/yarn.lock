@@ -447,10 +447,10 @@ path-scurry@^1.7.0:
     lru-cache "^9.1.1"
     minipass "^5.0.0 || ^6.0.2"
 
-peredelano-profile@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/peredelano-profile/-/peredelano-profile-0.0.1.tgz#236d49b20a53b4250e962c0e6b921b0fea9b0c18"
-  integrity sha512-37L0J2+aAnEzevelhRq8uxAGkU3jtSHlSC3XOn9Kn9EHcYQ8nwlSZ6P/3TiXqyAIDAKTFGUUbkyE7Vvku5qK3g==
+peredelano-profile@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/peredelano-profile/-/peredelano-profile-0.0.2.tgz#20906592e94236caf13242d2737fbdea5c3ad702"
+  integrity sha512-M08HpeilD01EW9oR1gjBHuhSfz9/dPQJa0kPN6iGGwJybFIIcDV/GvGRy19VV1gsNU+aHgR4iMcwVIGfqHQsGw==
   dependencies:
     react "^18.2.0"
     react-dom "^18.2.0"
