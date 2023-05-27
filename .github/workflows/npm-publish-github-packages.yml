@@ -1,0 +1,39 @@
+name: peredelano-profile
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - peredelano-profile/**
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - peredelano-profile/**
+  workflow_dispatch:
+    inputs:
+      npmPublishTag:
+        type: choice
+        description: 'npm publish tag'
+        required: false
+        options:
+        - 
+        - latest
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./peredelano-profile
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+      - run: yarn
+      - run: yarn lint
+      - run: yarn build
+      - run: yarn publish --tag ${{ github.event.inputs.npmPublishTag }} --no-git-tag-version
+        if: github.event.inputs.npmPublishTag == 'latest'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
