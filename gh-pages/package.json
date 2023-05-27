@@ -12,7 +12,7 @@
   "devDependencies": {
     "copyfiles": "2.4.1",
     "gh-pages": "5.0.0",
-    "peredelano-profile": "0.0.1",
+    "peredelano-profile": "0.0.2",
     "rimraf": "5.0.0"
   }
 }
