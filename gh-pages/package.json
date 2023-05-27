@@ -1,7 +1,7 @@
 {
   "name": "peredelano-profile-gh-pages",
   "private":"true",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "scripts": {
     "build": "rimraf dist && node build.js",
     "deploy": "node deploy.js"
