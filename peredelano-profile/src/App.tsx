@@ -1,10 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+
+import { Button } from '@mui/material';
+import AdsClickIcon from '@mui/icons-material/AdsClick';
+
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+
+import './App.css';
+
 
 function App() {
   const [count, setCount] = useState(0)
+  const [click, setClick] = useState<boolean>(false)
+
+  const handleClick = () => {
+    setCount(count + 1)
+    setClick(!click)
+  }
 
   return (
     <>
@@ -18,9 +30,13 @@ function App() {
       </div>
       <h1>Peredelano-Profile(coming soon)</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <Button
+          variant="contained"
+          startIcon={<AdsClickIcon />}
+          onClick={handleClick}
+          color={(click && 'success') || 'error'}>
           count is {count}
-        </button>
+        </Button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
