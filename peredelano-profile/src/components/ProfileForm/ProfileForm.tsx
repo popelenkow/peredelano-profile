@@ -86,7 +86,7 @@ const ProfileForm = () => {
         {...register('stack',{
           required: true,
           onChange: (e) => {
-            setStack(`${e.target.value}`);
+            setStack(e.target.value);
           },
           minLength: {
             value: StackMinLen.LENGTH,
