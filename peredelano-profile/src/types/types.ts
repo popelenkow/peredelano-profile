@@ -2,13 +2,13 @@ import { UseFormRegister } from 'react-hook-form';
 
 export enum InputsRegisterKey {
   ROLE = 'teamRole',
-  EXPERIENCE = 'experience',
+  EXPERIENCE = 'commercialExperience',
 }
 
 export type FormValues = {
   teamRole: string;
-  experience: string;
-  stack: string;
+  commercialExperience: string;
+  stackUsed: string;
 };
 
 export type FormInputsProps = {

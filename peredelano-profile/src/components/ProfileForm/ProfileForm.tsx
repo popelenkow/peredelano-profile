@@ -40,8 +40,8 @@ const ProfileForm = () => {
   const onSubmit: SubmitHandler<FormValues> = (data): void => {
     const personData: FormValues = {
       teamRole: data.teamRole,
-      experience: data.experience,
-      stack: data.stack.replace(/\s+/g,' ').trim(),
+      commercialExperience: data.commercialExperience,
+      stackUsed: data.stackUsed.replace(/\s+/g,' ').trim(),
     };
 
     console.log('SUBMIT:',personData);
@@ -73,7 +73,7 @@ const ProfileForm = () => {
         data={experienceArray}
       />
       <TextField
-        error={errors?.stack ? true : false}
+        error={errors?.stackUsed ? true : false}
         className={styles.input_text}
         id="outlined-basic"
         label={InputsTitle.STACK}
@@ -83,7 +83,7 @@ const ProfileForm = () => {
         variant="outlined"
         multiline
         maxRows={3}
-        {...register('stack',{
+        {...register('stackUsed',{
           required: true,
           onChange: (e) => {
             setStack(e.target.value);
@@ -94,7 +94,7 @@ const ProfileForm = () => {
           },
         })}
       />
-      {errors?.stack && (
+      {errors?.stackUsed && (
         <span className={styles.error}>{InputsTitle.STACK_ERROR}</span>
       )}
 
