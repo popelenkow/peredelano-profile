@@ -5,6 +5,7 @@ import AdsClickIcon from '@mui/icons-material/AdsClick';
 
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
+import { useTranslation } from 'react-i18next';
 
 import './App.css';
 
@@ -12,11 +13,16 @@ import './App.css';
 function App() {
   const [count, setCount] = useState(0)
   const [click, setClick] = useState<boolean>(false)
+  const { t, i18n } = useTranslation();
 
   const handleClick = () => {
     setCount(count + 1)
     setClick(!click)
   }
+
+  const changeLanguage = (language: string) => {
+    i18n.changeLanguage(language);
+  };
 
   return (
     <>
@@ -28,14 +34,18 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Peredelano-Profile(coming soon)</h1>
+      <h1>Peredelano-Profile({t('app_button.comming_soon')})</h1>
+      <div>
+        <button onClick={() => changeLanguage("en")}>EN</button>
+        <button onClick={() => changeLanguage("ru")}>RU</button>
+      </div>
       <div className="card">
         <Button
           variant="contained"
           startIcon={<AdsClickIcon />}
           onClick={handleClick}
           color={(click && 'success') || 'error'}>
-          count is {count}
+          {t('app_button.count')} {count}
         </Button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
