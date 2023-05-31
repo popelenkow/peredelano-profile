@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { useForm,SubmitHandler } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 
-import { Button,TextField } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import SendSharpIcon from '@mui/icons-material/SendSharp';
 
 import { ProfileFormControl } from './ProfileFormControl';
 
-import { FormValues,InputsRegisterKey } from '../../types';
-import { experienceArray,teamRoleArray } from '../../constants';
+import { FormValues, InputsRegisterKey } from '../../types';
+import { experienceArray, teamRoleArray } from '../../constants';
 
 import styles from './styles.module.css';
 
@@ -33,18 +33,18 @@ const ProfileForm = () => {
   } = useForm<FormValues>({
     mode: 'all',
   });
-  const [experience,setExperience] = useState<string>('');
-  const [role,setRole] = useState<string>('');
-  const [stack,setStack] = useState<string>('');
+  const [experience, setExperience] = useState<string>('');
+  const [role, setRole] = useState<string>('');
+  const [stack, setStack] = useState<string>('');
 
   const onSubmit: SubmitHandler<FormValues> = (data): void => {
     const personData: FormValues = {
       teamRole: data.teamRole,
       commercialExperience: data.commercialExperience,
-      stackUsed: data.stackUsed.replace(/\s+/g,' ').trim(),
+      stackUsed: data.stackUsed.replace(/\s+/g, ' ').trim(),
     };
 
-    console.log('SUBMIT:',personData);
+    console.log('SUBMIT:', personData);
     setRole('');
     setExperience('');
     setStack('');
@@ -83,15 +83,12 @@ const ProfileForm = () => {
         variant="outlined"
         multiline
         maxRows={3}
-        {...register('stackUsed',{
+        {...register('stackUsed', {
           required: true,
           onChange: (e) => {
             setStack(e.target.value);
           },
-          minLength: {
-            value: StackMinLen.LENGTH,
-            message: InputsTitle.STACK_ERROR,
-          },
+          minLength: StackMinLen.LENGTH
         })}
       />
       {errors?.stackUsed && (
